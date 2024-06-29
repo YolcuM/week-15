@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <h1>Температура в разных городах</h1>
+
+    <div id="resultTemp"></div>
+    <div id="resultTemp1"></div>
+    <div id="resultTemp2"></div>
+    <div id="resultTemp3"></div>
+
+    <p id="maxTemp"></p>
+    <p id="minTemp"></p>
+
+    <script>
+        //Создайте массив городов
+    const cities = ["Москва", "Санкт-Петербург", "Нью-Йорк", "Токио"];
+        // Пустой массив(температуры для каждого города)
+        const temperature = [];
+        //Ввод температуры пользователем
+        for (let i = 0; i < cities.length; i++) {
+        let temper = prompt(`Введите температуру для города ${cities[i]}`);
+        temperature.push(Number(temper));
+    }
+    
+    //Информация о каждом городе и его температуре. 
+    for (let i = 0; i < cities.length; i++) {
+        const city = cities[i];
+        const newCityString = `Температура в городе ${city}: ${temperature[i]}°C`;
+        cities[i] = newCityString;
+        console.log(cities);
+        resultTemp.textContent = cities[0];
+        resultTemp1.textContent = cities[1];
+        resultTemp2.textContent = cities[2];
+        resultTemp3.textContent = cities[3];
+    }
+
+//max and min temprature
+
+maxTemp.textContent = `Максимальная температура: ${Math.max(
+        ...temperature
+)}°C`;
+minTemp.textContent = `Минимальная температура: ${Math.min(
+        ...temperature
+)}°C`;
+    </script>
+</body>
+</html>
